@@ -1,0 +1,12 @@
+name: github-action
+on: [pull_request]
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Execute script
+        run: sh ./scripts/test.sh
+        env:
+          TEST: ${{ secrets.TEST_SECRET }}
